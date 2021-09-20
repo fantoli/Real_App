@@ -11,6 +11,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.BorderFactory;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 
@@ -238,6 +239,7 @@ public class LOGIN_WINDOW extends javax.swing.JFrame {
                MAIN_APP_WINDOW mainform = new MAIN_APP_WINDOW();
                mainform.setVisible(true);
                mainform.pack();
+               mainform.setExtendedState(JFrame.MAXIMIZED_BOTH);
                //close the login window
                this.dispose();
                
