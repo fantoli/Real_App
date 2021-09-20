@@ -62,7 +62,7 @@ public class P_TYPE {
     }
     
     //Create a function to insert - edit - remove type
-    public boolean execTypeQuery(String queryType, P_TYPE type) throws ClassNotFoundException 
+    public boolean execTypeQuery(String queryType, P_TYPE type)
     {
         PreparedStatement ps;
         
@@ -86,11 +86,11 @@ public class P_TYPE {
             
             
             
-        } catch (SQLException ex) {
-            Logger.getLogger(P_TYPE.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception e) {
+            
             return false;
         }
-            
+          
             
       }
         
@@ -114,8 +114,8 @@ public class P_TYPE {
             
             
             
-        } catch (SQLException ex) {
-            Logger.getLogger(P_TYPE.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception e) {
+            
             return false;
         }
         
@@ -139,8 +139,8 @@ public class P_TYPE {
             
             
             
-        } catch (SQLException ex) {
-            Logger.getLogger(P_TYPE.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception e) {
+            
             return false;
         }
         
