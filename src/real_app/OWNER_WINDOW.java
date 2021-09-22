@@ -164,7 +164,7 @@ public class OWNER_WINDOW extends javax.swing.JFrame {
                 java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, true, true
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -458,8 +458,16 @@ public class OWNER_WINDOW extends javax.swing.JFrame {
             Connection con = Conexion.getConexion();
             PreparedStatement ps = con.prepareStatement("DELETE FROM owners WHERE id=?");
             ps.setInt(1, id);
-            ps.executeUpdate();
-            JOptionPane.showInternalMessageDialog(null, "Registro Eliminado");
+            int yes_or_no = JOptionPane.showConfirmDialog(null, "Do you want to delete this type?");
+            if(yes_or_no == JOptionPane.YES_OPTION)
+            {
+                ps.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Type deleted", "Delete Type", 1);
+            }else{
+                JOptionPane.showMessageDialog(null, "Operation Failed", "Delete Type", 2);
+            }
+            
+
             limpiar();
             cargarTabla();
 
