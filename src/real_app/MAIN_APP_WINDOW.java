@@ -170,10 +170,13 @@ public class MAIN_APP_WINDOW extends javax.swing.JFrame {
         jLabel_Client.setBackground(new java.awt.Color(102, 102, 102));
         jLabel_Client.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jLabel_Client.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_Client.setText("  Client");
+        jLabel_Client.setText("  Clients");
         jLabel_Client.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel_Client.setOpaque(true);
         jLabel_Client.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_ClientMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel_ClientMouseEntered(evt);
             }
@@ -319,6 +322,12 @@ public class MAIN_APP_WINDOW extends javax.swing.JFrame {
         owner.setVisible(true);
         owner.pack();
     }//GEN-LAST:event_jLabel_OwnerMouseClicked
+
+    private void jLabel_ClientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ClientMouseClicked
+        CLIENT_WINDOW client = new CLIENT_WINDOW();
+        client.setVisible(true);
+        client.pack();
+    }//GEN-LAST:event_jLabel_ClientMouseClicked
 
     /**
      * @param args the command line arguments

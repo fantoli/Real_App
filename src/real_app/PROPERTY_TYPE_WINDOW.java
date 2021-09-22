@@ -328,6 +328,8 @@ public class PROPERTY_TYPE_WINDOW extends javax.swing.JFrame {
     private void cargarTabla(){
         DefaultTableModel modeloTabla = (DefaultTableModel) tblPropertyType.getModel();
         modeloTabla.setRowCount(0);
+        tblPropertyType.setRowHeight(40);
+        tblPropertyType.setSelectionBackground(Color.red);
 
         PreparedStatement ps;
         ResultSet rs;

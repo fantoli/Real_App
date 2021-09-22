@@ -245,7 +245,7 @@ public class LOGIN_WINDOW extends javax.swing.JFrame {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");           
             String url = "jdbc:sqlserver://localhost:1433;databaseName=java_rst_db;user=sa;password=Inuyasha.96"; 
             Connection con = DriverManager.getConnection(url);
-            String sql = "Select * from t_Login where username=? and password = ?";
+            String sql = "Select * from login where username=? and password = ?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, jTextField_Username.getText());
             pst.setString(2, jPassword.getText());

@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author fantoli
  */
-public class OWNER_WINDOW extends javax.swing.JFrame {
+public class CLIENT_WINDOW extends javax.swing.JFrame {
 
     //instanciamos la clase de la conexion
     Conexion conection = new Conexion();
@@ -29,8 +29,7 @@ public class OWNER_WINDOW extends javax.swing.JFrame {
     
     ButtonGroup btnGr;
     
-    
-    public OWNER_WINDOW() {
+    public CLIENT_WINDOW() {
         initComponents();
         
         this.setLocationRelativeTo(null);
@@ -39,15 +38,14 @@ public class OWNER_WINDOW extends javax.swing.JFrame {
         btnGr = new ButtonGroup();
         cargarTabla();
         
-        Border jPanelTitle_border = BorderFactory.createMatteBorder(0, 0, 3, 0, new Color(60,70,200));
+        Border jPanelTitle_border = BorderFactory.createMatteBorder(0, 0, 3, 0, new Color(235,125,22));
         jPanel_Title.setBorder(jPanelTitle_border);
         
         Border button_border = BorderFactory.createMatteBorder(3, 3, 3, 3, new Color(255,255,255));
-        jButton_Add_Owner.setBorder(button_border);
-        jButton_Edit_Owner.setBorder(button_border);
-        jButton_Remove_Owner.setBorder(button_border);
+        jButton_Add_Client.setBorder(button_border);
+        jButton_Edit_Client.setBorder(button_border);
+        jButton_Remove_Client.setBorder(button_border);
         jButton_Limpiar.setBorder(button_border);
-        
     }
 
     /**
@@ -70,10 +68,10 @@ public class OWNER_WINDOW extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea_Address = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblOwners = new javax.swing.JTable();
-        jButton_Add_Owner = new javax.swing.JButton();
-        jButton_Edit_Owner = new javax.swing.JButton();
-        jButton_Remove_Owner = new javax.swing.JButton();
+        tblClients = new javax.swing.JTable();
+        jButton_Add_Client = new javax.swing.JButton();
+        jButton_Edit_Client = new javax.swing.JButton();
+        jButton_Remove_Client = new javax.swing.JButton();
         jButton_Limpiar = new javax.swing.JButton();
         jTextField_LastName = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -81,19 +79,17 @@ public class OWNER_WINDOW extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jTextField_Email = new javax.swing.JTextField();
-        jButton_Owner_Preperties = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1035, 580));
 
-        jPanel1.setBackground(new java.awt.Color(121, 117, 242));
+        jPanel1.setBackground(new java.awt.Color(255, 178, 41));
 
-        jPanel_Title.setBackground(new java.awt.Color(96, 90, 223));
+        jPanel_Title.setBackground(new java.awt.Color(246, 145, 16));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 33)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Owners");
+        jLabel1.setText("Clients");
 
         lblClosePropertyType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1487086362-cancel_81578.png"))); // NOI18N
         lblClosePropertyType.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -149,8 +145,8 @@ public class OWNER_WINDOW extends javax.swing.JFrame {
         jTextArea_Address.setRows(5);
         jScrollPane1.setViewportView(jTextArea_Address);
 
-        tblOwners.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        tblOwners.setModel(new javax.swing.table.DefaultTableModel(
+        tblClients.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        tblClients.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -176,54 +172,54 @@ public class OWNER_WINDOW extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tblOwners.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblClients.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblOwnersMouseClicked(evt);
+                tblClientsMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(tblOwners);
-        if (tblOwners.getColumnModel().getColumnCount() > 0) {
-            tblOwners.getColumnModel().getColumn(0).setMinWidth(35);
-            tblOwners.getColumnModel().getColumn(0).setPreferredWidth(35);
-            tblOwners.getColumnModel().getColumn(0).setMaxWidth(35);
-            tblOwners.getColumnModel().getColumn(1).setMinWidth(100);
-            tblOwners.getColumnModel().getColumn(1).setPreferredWidth(100);
-            tblOwners.getColumnModel().getColumn(1).setMaxWidth(100);
-            tblOwners.getColumnModel().getColumn(3).setMinWidth(100);
-            tblOwners.getColumnModel().getColumn(3).setPreferredWidth(100);
-            tblOwners.getColumnModel().getColumn(3).setMaxWidth(100);
+        jScrollPane2.setViewportView(tblClients);
+        if (tblClients.getColumnModel().getColumnCount() > 0) {
+            tblClients.getColumnModel().getColumn(0).setMinWidth(35);
+            tblClients.getColumnModel().getColumn(0).setPreferredWidth(35);
+            tblClients.getColumnModel().getColumn(0).setMaxWidth(35);
+            tblClients.getColumnModel().getColumn(1).setMinWidth(80);
+            tblClients.getColumnModel().getColumn(1).setPreferredWidth(80);
+            tblClients.getColumnModel().getColumn(1).setMaxWidth(80);
+            tblClients.getColumnModel().getColumn(3).setMinWidth(80);
+            tblClients.getColumnModel().getColumn(3).setPreferredWidth(80);
+            tblClients.getColumnModel().getColumn(3).setMaxWidth(80);
         }
 
-        jButton_Add_Owner.setBackground(new java.awt.Color(0, 153, 51));
-        jButton_Add_Owner.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton_Add_Owner.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_Add_Owner.setText("Add");
-        jButton_Add_Owner.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton_Add_Owner.addActionListener(new java.awt.event.ActionListener() {
+        jButton_Add_Client.setBackground(new java.awt.Color(0, 153, 51));
+        jButton_Add_Client.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton_Add_Client.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_Add_Client.setText("Add");
+        jButton_Add_Client.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton_Add_Client.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_Add_OwnerActionPerformed(evt);
+                jButton_Add_ClientActionPerformed(evt);
             }
         });
 
-        jButton_Edit_Owner.setBackground(new java.awt.Color(51, 153, 255));
-        jButton_Edit_Owner.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton_Edit_Owner.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_Edit_Owner.setText("Edit");
-        jButton_Edit_Owner.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton_Edit_Owner.addActionListener(new java.awt.event.ActionListener() {
+        jButton_Edit_Client.setBackground(new java.awt.Color(51, 153, 255));
+        jButton_Edit_Client.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton_Edit_Client.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_Edit_Client.setText("Edit");
+        jButton_Edit_Client.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton_Edit_Client.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_Edit_OwnerActionPerformed(evt);
+                jButton_Edit_ClientActionPerformed(evt);
             }
         });
 
-        jButton_Remove_Owner.setBackground(new java.awt.Color(255, 51, 51));
-        jButton_Remove_Owner.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton_Remove_Owner.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_Remove_Owner.setText("Remove");
-        jButton_Remove_Owner.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton_Remove_Owner.addActionListener(new java.awt.event.ActionListener() {
+        jButton_Remove_Client.setBackground(new java.awt.Color(255, 51, 51));
+        jButton_Remove_Client.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton_Remove_Client.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_Remove_Client.setText("Remove");
+        jButton_Remove_Client.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton_Remove_Client.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_Remove_OwnerActionPerformed(evt);
+                jButton_Remove_ClientActionPerformed(evt);
             }
         });
 
@@ -261,14 +257,6 @@ public class OWNER_WINDOW extends javax.swing.JFrame {
         jTextField_Email.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jTextField_Email.setForeground(new java.awt.Color(0, 0, 0));
 
-        jButton_Owner_Preperties.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton_Owner_Preperties.setText("Owner Properties");
-        jButton_Owner_Preperties.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_Owner_PrepertiesActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -301,20 +289,17 @@ public class OWNER_WINDOW extends javax.swing.JFrame {
                                     .addGap(6, 6, 6)
                                     .addComponent(jTextField_Id, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 646, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(119, 119, 119)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton_Owner_Preperties, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton_Add_Owner, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton_Edit_Owner, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(125, 125, 125)
+                .addComponent(jButton_Add_Client, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton_Remove_Owner, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton_Edit_Client, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton_Remove_Client, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(jButton_Limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -347,22 +332,20 @@ public class OWNER_WINDOW extends javax.swing.JFrame {
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextField_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGap(0, 178, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton_Limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jButton_Add_Client, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jButton_Edit_Client, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jButton_Remove_Client, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(37, 37, 37))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton_Limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton_Add_Owner, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton_Edit_Owner, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton_Remove_Owner, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton_Owner_Preperties, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
+                        .addContainerGap(119, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -383,16 +366,16 @@ public class OWNER_WINDOW extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_lblClosePropertyTypeMouseClicked
 
-    private void tblOwnersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblOwnersMouseClicked
+    private void tblClientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblClientsMouseClicked
         try {
-            int fila = tblOwners.getSelectedRow();
-            int id = Integer.parseInt(tblOwners.getValueAt(fila, 0).toString());
+            int fila = tblClients.getSelectedRow();
+            int id = Integer.parseInt(tblClients.getValueAt(fila, 0).toString());
 
             PreparedStatement ps;
             ResultSet rs;
 
             Connection con = Conexion.getConexion();
-            ps = con.prepareStatement("SELECT name, lastname, email, phone, address FROM owners WHERE id=?");
+            ps = con.prepareStatement("SELECT name, lastname, email, phone, address FROM clients WHERE id=?");
             ps.setInt(1, id);
             rs = ps.executeQuery();
 
@@ -409,9 +392,9 @@ public class OWNER_WINDOW extends javax.swing.JFrame {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.toString());
         }
-    }//GEN-LAST:event_tblOwnersMouseClicked
+    }//GEN-LAST:event_tblClientsMouseClicked
 
-    private void jButton_Add_OwnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Add_OwnerActionPerformed
+    private void jButton_Add_ClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Add_ClientActionPerformed
         String name = jTextField_Name.getText();
         String lastname = jTextField_LastName.getText();
         String phone = jTextField_Phone.getText();
@@ -420,24 +403,23 @@ public class OWNER_WINDOW extends javax.swing.JFrame {
 
         try {
             Connection con = Conexion.getConexion();
-            PreparedStatement ps = con.prepareStatement("INSERT INTO owners (name, lastname, phone, email, address) VALUES (?,?,?,?,?)");
+            PreparedStatement ps = con.prepareStatement("INSERT INTO clients (name, lastname, phone, email, address) VALUES (?,?,?,?,?)");
             ps.setString(1, name);
             ps.setString(2, lastname);
             ps.setString(3, phone);
             ps.setString(4, email);
             ps.setString(5, address);
             ps.executeUpdate();
-            JOptionPane.showInternalMessageDialog(null, "Registro guardado");
+            JOptionPane.showInternalMessageDialog(null, "Cliente guardado");
             limpiar();
             cargarTabla();
 
         } catch (SQLException e) {
             JOptionPane.showInternalMessageDialog(null, e.toString());
         }
+    }//GEN-LAST:event_jButton_Add_ClientActionPerformed
 
-    }//GEN-LAST:event_jButton_Add_OwnerActionPerformed
-
-    private void jButton_Edit_OwnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Edit_OwnerActionPerformed
+    private void jButton_Edit_ClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Edit_ClientActionPerformed
         int id = Integer.parseInt(jTextField_Id.getText());
         String name = jTextField_Name.getText();
         String lastname = jTextField_LastName.getText();
@@ -447,7 +429,7 @@ public class OWNER_WINDOW extends javax.swing.JFrame {
 
         try {
             Connection con = Conexion.getConexion();
-            PreparedStatement ps = con.prepareStatement("UPDATE owners SET name=?, lastname=?, phone=?, email=?, address=? WHERE id=?");
+            PreparedStatement ps = con.prepareStatement("UPDATE clients SET name=?, lastname=?, phone=?, email=?, address=? WHERE id=?");
             ps.setString(1, name);
             ps.setString(2, lastname);
             ps.setString(3, phone);
@@ -455,31 +437,30 @@ public class OWNER_WINDOW extends javax.swing.JFrame {
             ps.setString(5, address);
             ps.setInt(6, id);
             ps.executeUpdate();
-            JOptionPane.showInternalMessageDialog(null, "Registro modificado");
+            JOptionPane.showInternalMessageDialog(null, "Cliente modificado");
             limpiar();
             cargarTabla();
 
         } catch (SQLException e) {
             JOptionPane.showInternalMessageDialog(null, e.toString());
         }
-    }//GEN-LAST:event_jButton_Edit_OwnerActionPerformed
+    }//GEN-LAST:event_jButton_Edit_ClientActionPerformed
 
-    private void jButton_Remove_OwnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Remove_OwnerActionPerformed
+    private void jButton_Remove_ClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Remove_ClientActionPerformed
         int id = Integer.parseInt(jTextField_Id.getText());
 
         try {
             Connection con = Conexion.getConexion();
-            PreparedStatement ps = con.prepareStatement("DELETE FROM owners WHERE id=?");
+            PreparedStatement ps = con.prepareStatement("DELETE FROM clients WHERE id=?");
             ps.setInt(1, id);
-            int yes_or_no = JOptionPane.showConfirmDialog(null, "Do you want to delete this type?");
+            int yes_or_no = JOptionPane.showConfirmDialog(null, "Do you want to delete this client?");
             if(yes_or_no == JOptionPane.YES_OPTION)
             {
                 ps.executeUpdate();
-                JOptionPane.showMessageDialog(null, "Type deleted", "Delete Type", 1);
+                JOptionPane.showMessageDialog(null, "Client deleted", "Delete Client", 1);
             }else{
-                JOptionPane.showMessageDialog(null, "Operation Failed", "Delete Type", 2);
+                JOptionPane.showMessageDialog(null, "Client Failed", "Delete Client", 2);
             }
-            
 
             limpiar();
             cargarTabla();
@@ -487,16 +468,11 @@ public class OWNER_WINDOW extends javax.swing.JFrame {
         } catch (SQLException e) {
             JOptionPane.showInternalMessageDialog(null, e.toString());
         }
-    }//GEN-LAST:event_jButton_Remove_OwnerActionPerformed
+    }//GEN-LAST:event_jButton_Remove_ClientActionPerformed
 
     private void jButton_LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_LimpiarActionPerformed
         limpiar();
     }//GEN-LAST:event_jButton_LimpiarActionPerformed
-
-    private void jButton_Owner_PrepertiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Owner_PrepertiesActionPerformed
-        //Selected Owner Properties
-        
-    }//GEN-LAST:event_jButton_Owner_PrepertiesActionPerformed
 
     private void limpiar(){
     
@@ -510,10 +486,10 @@ public class OWNER_WINDOW extends javax.swing.JFrame {
     }
     
     private void cargarTabla(){
-        DefaultTableModel modeloTabla = (DefaultTableModel) tblOwners.getModel();
+        DefaultTableModel modeloTabla = (DefaultTableModel) tblClients.getModel();
         modeloTabla.setRowCount(0);
-        tblOwners.setRowHeight(40);
-        tblOwners.setSelectionBackground(Color.red);
+        tblClients.setRowHeight(40);
+        tblClients.setSelectionBackground(Color.red);
         
         
         PreparedStatement ps;
@@ -522,14 +498,14 @@ public class OWNER_WINDOW extends javax.swing.JFrame {
         int columnas;
         
         int[] anchos = {10, 50, 100};
-        for(int i = 0; i < tblOwners.getColumnCount(); i++)
+        for(int i = 0; i < tblClients.getColumnCount(); i++)
         {
-            tblOwners.getColumnModel().getColumn(i).setPreferredWidth(i);
+            tblClients.getColumnModel().getColumn(i).setPreferredWidth(i);
         }
         
         try {
             Connection con = Conexion.getConexion();
-            ps = con.prepareStatement("SELECT id, name, lastname, phone, email, address FROM owners");
+            ps = con.prepareStatement("SELECT id, name, lastname, phone, email, address FROM clients");
             rs = ps.executeQuery();
             rsmd = rs.getMetaData();
             columnas = rsmd.getColumnCount();
@@ -553,6 +529,7 @@ public class OWNER_WINDOW extends javax.swing.JFrame {
     }
     
     
+    
     /**
      * @param args the command line arguments
      */
@@ -570,30 +547,29 @@ public class OWNER_WINDOW extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(OWNER_WINDOW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CLIENT_WINDOW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(OWNER_WINDOW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CLIENT_WINDOW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(OWNER_WINDOW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CLIENT_WINDOW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(OWNER_WINDOW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CLIENT_WINDOW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new OWNER_WINDOW().setVisible(true);
+                new CLIENT_WINDOW().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton_Add_Owner;
-    private javax.swing.JButton jButton_Edit_Owner;
+    private javax.swing.JButton jButton_Add_Client;
+    private javax.swing.JButton jButton_Edit_Client;
     private javax.swing.JButton jButton_Limpiar;
-    private javax.swing.JButton jButton_Owner_Preperties;
-    private javax.swing.JButton jButton_Remove_Owner;
+    private javax.swing.JButton jButton_Remove_Client;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
@@ -611,6 +587,6 @@ public class OWNER_WINDOW extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField_Name;
     private javax.swing.JTextField jTextField_Phone;
     private javax.swing.JLabel lblClosePropertyType;
-    private javax.swing.JTable tblOwners;
+    private javax.swing.JTable tblClients;
     // End of variables declaration//GEN-END:variables
 }
