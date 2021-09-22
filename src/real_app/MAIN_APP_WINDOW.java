@@ -152,10 +152,13 @@ public class MAIN_APP_WINDOW extends javax.swing.JFrame {
         jLabel_Owner.setBackground(new java.awt.Color(102, 102, 102));
         jLabel_Owner.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jLabel_Owner.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_Owner.setText("  Owner");
+        jLabel_Owner.setText("  Owners");
         jLabel_Owner.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel_Owner.setOpaque(true);
         jLabel_Owner.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_OwnerMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel_OwnerMouseEntered(evt);
             }
@@ -308,7 +311,14 @@ public class MAIN_APP_WINDOW extends javax.swing.JFrame {
     private void jLabel_PropertyTypeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_PropertyTypeMouseClicked
         PROPERTY_TYPE_WINDOW property_type = new PROPERTY_TYPE_WINDOW();
         property_type.setVisible(true);
+        property_type.pack();
     }//GEN-LAST:event_jLabel_PropertyTypeMouseClicked
+
+    private void jLabel_OwnerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_OwnerMouseClicked
+        OWNER_WINDOW owner = new OWNER_WINDOW();
+        owner.setVisible(true);
+        owner.pack();
+    }//GEN-LAST:event_jLabel_OwnerMouseClicked
 
     /**
      * @param args the command line arguments
