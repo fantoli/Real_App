@@ -7,25 +7,26 @@ package Datos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class Conexion {
     
-    Connection cn = null;
     
-    public Connection Entrar(){
+    public static Connection getConexion(){
+        
+        //cargamos drive en la clase Class en el metodo ForName
+           String url = "jdbc:sqlserver://localhost:1433;databaseName=java_rst_db;user=sa;password=Inuyasha.96";
+        
         try {
-            //cargamos drive en la clase Class en el metodo ForName
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            cn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=java_rst_db;user=sa;password=Inuyasha.96");
-            //mensaje si conecta
-            JOptionPane.showInternalMessageDialog(null, "Conexion realizada con éxito");
-        } catch (Exception e) {
+            Connection con = DriverManager.getConnection(url);
+            return con;
+        } catch (SQLException e) {
             
-            //error
-            JOptionPane.showConfirmDialog(null, "Error En :" + e);
+            System.out.println(e.toString());
+            return null;
         }
-        return cn;
+        
         
     }
     
