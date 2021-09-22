@@ -1,3 +1,5 @@
+package real_app;
+
 
 import java.awt.Color;
 import javax.swing.BorderFactory;
