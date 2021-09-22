@@ -43,6 +43,12 @@ public class PROPERTY_TYPE_WINDOW extends javax.swing.JFrame {
         
         Border jPanelTitle_border = BorderFactory.createMatteBorder(0, 0, 3, 0, new Color(125,125,125));
         jPanel_Title.setBorder(jPanelTitle_border);
+        
+        Border button_border = BorderFactory.createMatteBorder(1, 1, 1, 1, new Color(255,255,255));
+        jButton_Add.setBorder(button_border);
+        jButton_Edit.setBorder(button_border);
+        jButton_Remove.setBorder(button_border);
+        jButton_Limpiar.setBorder(button_border);
     }
     
     
@@ -110,11 +116,11 @@ public class PROPERTY_TYPE_WINDOW extends javax.swing.JFrame {
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Description:");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Name:");
 
@@ -133,6 +139,7 @@ public class PROPERTY_TYPE_WINDOW extends javax.swing.JFrame {
         jTextArea_Description.setRows(5);
         jScrollPane1.setViewportView(jTextArea_Description);
 
+        tblPropertyType.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tblPropertyType.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -148,7 +155,7 @@ public class PROPERTY_TYPE_WINDOW extends javax.swing.JFrame {
                 java.lang.Integer.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -165,33 +172,49 @@ public class PROPERTY_TYPE_WINDOW extends javax.swing.JFrame {
             }
         });
         jScrollPane2.setViewportView(tblPropertyType);
+        if (tblPropertyType.getColumnModel().getColumnCount() > 0) {
+            tblPropertyType.getColumnModel().getColumn(0).setMinWidth(30);
+            tblPropertyType.getColumnModel().getColumn(0).setPreferredWidth(30);
+            tblPropertyType.getColumnModel().getColumn(0).setMaxWidth(30);
+        }
 
+        jButton_Add.setBackground(new java.awt.Color(0, 153, 51));
         jButton_Add.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton_Add.setForeground(new java.awt.Color(255, 255, 255));
         jButton_Add.setText("Add");
+        jButton_Add.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton_Add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_AddActionPerformed(evt);
             }
         });
 
+        jButton_Edit.setBackground(new java.awt.Color(51, 153, 255));
         jButton_Edit.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton_Edit.setForeground(new java.awt.Color(255, 255, 255));
         jButton_Edit.setText("Edit");
+        jButton_Edit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton_Edit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_EditActionPerformed(evt);
             }
         });
 
+        jButton_Remove.setBackground(new java.awt.Color(255, 51, 51));
         jButton_Remove.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton_Remove.setForeground(new java.awt.Color(255, 255, 255));
         jButton_Remove.setText("Remove");
+        jButton_Remove.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton_Remove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_RemoveActionPerformed(evt);
             }
         });
 
+        jButton_Limpiar.setBackground(new java.awt.Color(255, 255, 0));
         jButton_Limpiar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton_Limpiar.setText("Clean");
+        jButton_Limpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton_Limpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_LimpiarActionPerformed(evt);
@@ -211,8 +234,8 @@ public class PROPERTY_TYPE_WINDOW extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jButton_Remove, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addComponent(jButton_Limpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(61, 61, 61))
+                .addComponent(jButton_Limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jTextField_Id, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -251,16 +274,13 @@ public class PROPERTY_TYPE_WINDOW extends javax.swing.JFrame {
                                         .addGap(27, 27, 27)
                                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(jTextField_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton_Add, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton_Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton_Remove, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(jButton_Limpiar, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)))
+                    .addComponent(jButton_Limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton_Add, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton_Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton_Remove, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(55, 55, 55))
         );
 
