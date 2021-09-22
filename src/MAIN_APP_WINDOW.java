@@ -60,8 +60,10 @@ public class MAIN_APP_WINDOW extends javax.swing.JFrame {
         jLabel_PropertyImages = new javax.swing.JLabel();
         jLabel_Owner = new javax.swing.JLabel();
         jLabel_Client = new javax.swing.JLabel();
+        lblCloseMain = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -104,6 +106,9 @@ public class MAIN_APP_WINDOW extends javax.swing.JFrame {
         jLabel_PropertyType.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel_PropertyType.setOpaque(true);
         jLabel_PropertyType.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_PropertyTypeMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel_PropertyTypeMouseEntered(evt);
             }
@@ -172,6 +177,14 @@ public class MAIN_APP_WINDOW extends javax.swing.JFrame {
             }
         });
 
+        lblCloseMain.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1487086362-cancel_81578.png"))); // NOI18N
+        lblCloseMain.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblCloseMain.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCloseMainMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -184,7 +197,10 @@ public class MAIN_APP_WINDOW extends javax.swing.JFrame {
                     .addComponent(jLabel_PropertyImages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel_Owner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel_Client, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel_Property, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel_Property, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblCloseMain)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -201,7 +217,9 @@ public class MAIN_APP_WINDOW extends javax.swing.JFrame {
                 .addComponent(jLabel_Owner, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel_Client, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 180, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
+                .addComponent(lblCloseMain)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -281,6 +299,15 @@ public class MAIN_APP_WINDOW extends javax.swing.JFrame {
         jLabel_Client.setForeground(Color.white);
     }//GEN-LAST:event_jLabel_ClientMouseExited
 
+    private void lblCloseMainMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCloseMainMouseClicked
+        dispose();
+    }//GEN-LAST:event_lblCloseMainMouseClicked
+
+    private void jLabel_PropertyTypeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_PropertyTypeMouseClicked
+        PROPERTY_TYPE_WINDOW property_type = new PROPERTY_TYPE_WINDOW();
+        property_type.setVisible(true);
+    }//GEN-LAST:event_jLabel_PropertyTypeMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -327,5 +354,6 @@ public class MAIN_APP_WINDOW extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel lblCloseMain;
     // End of variables declaration//GEN-END:variables
 }

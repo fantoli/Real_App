@@ -31,6 +31,8 @@ public class PROPERTY_TYPE_WINDOW extends javax.swing.JFrame {
     
     public PROPERTY_TYPE_WINDOW() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        
         jTextField_Id.setVisible(false);
         btnGr = new ButtonGroup();
         cargarTabla();
@@ -49,6 +51,7 @@ public class PROPERTY_TYPE_WINDOW extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel_Title = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        lblClosePropertyType = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jTextField_Id = new javax.swing.JTextField();
@@ -58,12 +61,12 @@ public class PROPERTY_TYPE_WINDOW extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblPropertyType = new javax.swing.JTable();
         jButton_Add = new javax.swing.JButton();
-        jButton_Refresh = new javax.swing.JButton();
         jButton_Edit = new javax.swing.JButton();
         jButton_Remove = new javax.swing.JButton();
         jButton_Limpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -73,6 +76,14 @@ public class PROPERTY_TYPE_WINDOW extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Property Type");
 
+        lblClosePropertyType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1487086362-cancel_81578.png"))); // NOI18N
+        lblClosePropertyType.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblClosePropertyType.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblClosePropertyTypeMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel_TitleLayout = new javax.swing.GroupLayout(jPanel_Title);
         jPanel_Title.setLayout(jPanel_TitleLayout);
         jPanel_TitleLayout.setHorizontalGroup(
@@ -80,13 +91,20 @@ public class PROPERTY_TYPE_WINDOW extends javax.swing.JFrame {
             .addGroup(jPanel_TitleLayout.createSequentialGroup()
                 .addGap(330, 330, 330)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblClosePropertyType, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel_TitleLayout.setVerticalGroup(
             jPanel_TitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_TitleLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel_TitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel_TitleLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel_TitleLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblClosePropertyType, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -139,6 +157,11 @@ public class PROPERTY_TYPE_WINDOW extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblPropertyType.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblPropertyTypeMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblPropertyType);
 
         jButton_Add.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -148,9 +171,6 @@ public class PROPERTY_TYPE_WINDOW extends javax.swing.JFrame {
                 jButton_AddActionPerformed(evt);
             }
         });
-
-        jButton_Refresh.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton_Refresh.setText("Refresh");
 
         jButton_Edit.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton_Edit.setText("Edit");
@@ -162,7 +182,13 @@ public class PROPERTY_TYPE_WINDOW extends javax.swing.JFrame {
 
         jButton_Remove.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton_Remove.setText("Remove");
+        jButton_Remove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_RemoveActionPerformed(evt);
+            }
+        });
 
+        jButton_Limpiar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton_Limpiar.setText("Clean");
         jButton_Limpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -176,35 +202,29 @@ public class PROPERTY_TYPE_WINDOW extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel_Title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton_Limpiar)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton_Add, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton_Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton_Remove, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton_Refresh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jTextField_Id, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(47, 47, 47)
+                .addComponent(jButton_Add, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton_Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton_Remove, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jButton_Limpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(61, 61, 61))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jTextField_Id, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTextField_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,14 +249,16 @@ public class PROPERTY_TYPE_WINDOW extends javax.swing.JFrame {
                                         .addGap(27, 27, 27)
                                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(jTextField_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                .addComponent(jButton_Limpiar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton_Add, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton_Refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton_Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton_Remove, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton_Add, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton_Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton_Remove, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(jButton_Limpiar, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)))
                 .addGap(55, 55, 55))
         );
 
@@ -291,6 +313,12 @@ public class PROPERTY_TYPE_WINDOW extends javax.swing.JFrame {
         ResultSetMetaData rsmd;
         int columnas;
         
+        int[] anchos = {10, 50, 100};
+        for(int i = 0; i < tblPropertyType.getColumnCount(); i++)
+        {
+            tblPropertyType.getColumnModel().getColumn(i).setPreferredWidth(i);
+        }
+        
         try {
             Connection con = Conexion.getConexion();
             ps = con.prepareStatement("SELECT id, name, description FROM property_type");
@@ -317,12 +345,76 @@ public class PROPERTY_TYPE_WINDOW extends javax.swing.JFrame {
     }
     
     private void jButton_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_EditActionPerformed
+        int id = Integer.parseInt(jTextField_Id.getText());
+        String name = jTextField_Name.getText();
+        String description = jTextArea_Description.getText();
         
+        try {
+            Connection con = Conexion.getConexion();
+            PreparedStatement ps = con.prepareStatement("UPDATE property_type SET name=?, description=? WHERE id=?");
+            ps.setString(1, name);
+            ps.setString(2, description);
+            ps.setInt(3, id);
+            ps.executeUpdate();
+            JOptionPane.showInternalMessageDialog(null, "Registro modificado");
+            limpiar();
+            cargarTabla();
+            
+        } catch (SQLException e) {
+            JOptionPane.showInternalMessageDialog(null, e.toString());
+        }
     }//GEN-LAST:event_jButton_EditActionPerformed
 
     private void jButton_LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_LimpiarActionPerformed
-        
+        limpiar();
     }//GEN-LAST:event_jButton_LimpiarActionPerformed
+
+    private void tblPropertyTypeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPropertyTypeMouseClicked
+        try {
+            int fila = tblPropertyType.getSelectedRow();
+            int id = Integer.parseInt(tblPropertyType.getValueAt(fila, 0).toString());
+            
+            PreparedStatement ps;
+            ResultSet rs;
+            
+            Connection con = Conexion.getConexion();
+            ps = con.prepareStatement("SELECT name, description FROM property_type WHERE id=?");
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+            jTextField_Id.setText(String.valueOf(id));
+            jTextField_Name.setText(rs.getString("name"));
+            jTextArea_Description.setText(rs.getString("description"));
+            
+            }
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+        }
+    }//GEN-LAST:event_tblPropertyTypeMouseClicked
+
+    private void jButton_RemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RemoveActionPerformed
+        int id = Integer.parseInt(jTextField_Id.getText());
+        
+        
+        try {
+            Connection con = Conexion.getConexion();
+            PreparedStatement ps = con.prepareStatement("DELETE FROM property_type WHERE id=?");
+            ps.setInt(1, id);
+            ps.executeUpdate();
+            JOptionPane.showInternalMessageDialog(null, "Registro Eliminado");
+            limpiar();
+            cargarTabla();
+            
+        } catch (SQLException e) {
+            JOptionPane.showInternalMessageDialog(null, e.toString());
+        }
+    }//GEN-LAST:event_jButton_RemoveActionPerformed
+
+    private void lblClosePropertyTypeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblClosePropertyTypeMouseClicked
+        dispose();
+    }//GEN-LAST:event_lblClosePropertyTypeMouseClicked
 
     /**
      * @param args the command line arguments
@@ -363,7 +455,6 @@ public class PROPERTY_TYPE_WINDOW extends javax.swing.JFrame {
     private javax.swing.JButton jButton_Add;
     private javax.swing.JButton jButton_Edit;
     private javax.swing.JButton jButton_Limpiar;
-    private javax.swing.JButton jButton_Refresh;
     private javax.swing.JButton jButton_Remove;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -375,6 +466,7 @@ public class PROPERTY_TYPE_WINDOW extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea_Description;
     private javax.swing.JTextField jTextField_Id;
     private javax.swing.JTextField jTextField_Name;
+    private javax.swing.JLabel lblClosePropertyType;
     private javax.swing.JTable tblPropertyType;
     // End of variables declaration//GEN-END:variables
 }

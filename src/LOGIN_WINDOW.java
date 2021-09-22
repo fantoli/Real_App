@@ -61,8 +61,10 @@ public class LOGIN_WINDOW extends javax.swing.JFrame {
         jTextField_Username = new javax.swing.JTextField();
         jPassword = new javax.swing.JPasswordField();
         jButton_Login = new javax.swing.JButton();
+        lblCloseLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -116,6 +118,14 @@ public class LOGIN_WINDOW extends javax.swing.JFrame {
             }
         });
 
+        lblCloseLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1487086362-cancel_81578.png"))); // NOI18N
+        lblCloseLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblCloseLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCloseLoginMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -124,8 +134,8 @@ public class LOGIN_WINDOW extends javax.swing.JFrame {
                 .addComponent(jLabel_Image, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(jLabel_Title))
+                        .addGap(239, 239, 239)
+                        .addComponent(lblCloseLogin))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,16 +147,21 @@ public class LOGIN_WINDOW extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jTextField_Username)
-                                    .addComponent(jPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE))))))
-                .addContainerGap(30, Short.MAX_VALUE))
+                                    .addComponent(jPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jLabel_Title)))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel_Image, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addContainerGap()
+                .addComponent(lblCloseLogin)
+                .addGap(19, 19, 19)
                 .addComponent(jLabel_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(115, 115, 115)
+                .addGap(84, 84, 84)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextField_Username, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
                     .addComponent(jLabel_Username, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -256,6 +271,10 @@ public class LOGIN_WINDOW extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton_LoginActionPerformed
 
+    private void lblCloseLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCloseLoginMouseClicked
+        dispose();
+    }//GEN-LAST:event_lblCloseLoginMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -300,5 +319,6 @@ public class LOGIN_WINDOW extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPassword;
     private javax.swing.JTextField jTextField_Username;
+    private javax.swing.JLabel lblCloseLogin;
     // End of variables declaration//GEN-END:variables
 }
