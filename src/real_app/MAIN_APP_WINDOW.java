@@ -126,6 +126,9 @@ public class MAIN_APP_WINDOW extends javax.swing.JFrame {
         jLabel_Property.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel_Property.setOpaque(true);
         jLabel_Property.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_PropertyMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel_PropertyMouseEntered(evt);
             }
@@ -328,6 +331,12 @@ public class MAIN_APP_WINDOW extends javax.swing.JFrame {
         client.setVisible(true);
         client.pack();
     }//GEN-LAST:event_jLabel_ClientMouseClicked
+
+    private void jLabel_PropertyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_PropertyMouseClicked
+        PROPERTY_WINDOW property = new PROPERTY_WINDOW();
+        property.setVisible(true);
+        property.pack();
+    }//GEN-LAST:event_jLabel_PropertyMouseClicked
 
     /**
      * @param args the command line arguments
